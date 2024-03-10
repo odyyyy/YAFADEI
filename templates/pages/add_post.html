@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {{ form.media }}
+
     <meta charset="UTF-8">
     <title>Title</title>
+    {{ add_content_form.media }}
 </head>
 <body>
 
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ post_information_form.as_p }}
+    
+    {% csrf_token %}
+    {{ add_content_form.media }}
+    {{ add_content_form.as_p }}
+    <button type="submit">Опубликовать</button>
+</form>
 </body>
 </html>

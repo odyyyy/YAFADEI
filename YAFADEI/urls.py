@@ -1,10 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from posts.views import homePageView, handle404Error
-
+from posts.views import homePageView, addNewPostView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homePageView)
+    path('tinymce/', include('tinymce.urls')),
+    path('', homePageView),
+    path('new', addNewPostView)
 ]

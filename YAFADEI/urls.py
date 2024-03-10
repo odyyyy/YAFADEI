@@ -7,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
     path('', homePageView),
-    path('new', addNewPostView)
+    path('new/', include('posts.urls'))
 ]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from posts.models import PostCards, Posts
+from posts.models import Posts
 
 
 # Register your models here.
@@ -7,5 +7,4 @@ from posts.models import PostCards, Posts
 #     pass
 #
 #
-admin.site.register(PostCards)
 admin.site.register(Posts)

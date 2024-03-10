@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from posts.forms import AddPostContentForm, PostInformationForm
-from posts.services import add_post_content_to_db, add_post_info_to_db
+from posts.forms import AddPostForm
+from posts.services import add_post_info_to_db
 
 
 def homePageView(request):
@@ -10,10 +10,9 @@ def homePageView(request):
 
 def addNewPostView(request):
     if request.method == 'POST':
-        add_post_info_to_db(request.POST)
+        add_post_info_to_db(request)
     return render(request, 'pages/add_post.html', {
-        'post_information_form': PostInformationForm,
-        'add_content_form': AddPostContentForm
+        'form': AddPostForm
     })
 
 

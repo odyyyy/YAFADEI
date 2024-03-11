@@ -1,6 +1,7 @@
 # For business logic :)
 import random
 
+from django.shortcuts import get_object_or_404
 from django.utils.text import slugify
 
 from posts.models import Posts
@@ -9,6 +10,9 @@ from posts.models import Posts
 def get_posts_list_from_db():
     return list(Posts.objects.values().order_by('-published_time'))
 
+def get_post_from_db(post_slug: str):
+    post = Posts.objects.get(slug=post_slug)
+    return post
 
 def add_post_info_to_db(req):
     """ Общая функция добавляющая всю информацию о созданном посте в БД """

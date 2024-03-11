@@ -1,8 +1,11 @@
+import random
 from datetime import datetime
 
 from django.contrib.auth.models import User
 from django.db import models
+
 from tinymce import models as tinymce_models
+
 
 
 
@@ -17,6 +20,7 @@ class Posts(models.Model):
     content = tinymce_models.HTMLField(verbose_name='Содержание статьи')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
     class Meta:
         verbose_name = "Посты"
         verbose_name_plural = "Посты"
@@ -24,3 +28,5 @@ class Posts(models.Model):
 
     def __str__(self):
         return self.title
+
+

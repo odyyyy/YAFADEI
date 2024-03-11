@@ -1,10 +1,24 @@
+<!-- Страница со списком постов (карточками постов) -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    {% for post in posts_list %}
+        {{ post.title }}
+     <br>
+        <img src="{{ post.img }}" alt="Post Image" >
+    <br>
+        {{ post.published_time }} <!-- Отформатировать вывод даты -->
+    <br>
+        {{ post.karma }}
+    <br>
+    <br>
+    <br>
+
+    {% endfor %}
 </body>
 </html>

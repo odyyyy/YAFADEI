@@ -10,9 +10,9 @@
     {% for post in posts_list %}
         {{ post.title }}
      <br>
-        <img src="{{ post.img }}" alt="Post Image" >
+        <img src="/media/{{ post.img }}" alt="Post Image" width="500px" height="500px">
     <br>
-        {{ post.published_time }} <!-- Отформатировать вывод даты -->
+        {{ post.published_time }}
     <br>
         {{ post.karma }}
     <br>

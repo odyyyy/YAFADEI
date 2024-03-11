@@ -12,7 +12,7 @@ from tinymce import models as tinymce_models
 class Posts(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок поста")
     img = models.ImageField(upload_to='photos/%Y/%m/%d/',
-                            default='media/svg/no_image_avaliable.svg',
+                            default='/svg/no_image_avaliable.svg',
                             verbose_name="Фото")
     slug = models.SlugField(max_length=255, db_index=True, unique=True, verbose_name='URL')
     karma = models.IntegerField(default=0, verbose_name='Карма')
@@ -27,6 +27,6 @@ class Posts(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return self.title
+        return f"Post: {self.title}"
 
 

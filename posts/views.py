@@ -19,7 +19,6 @@ def add_new_post_view(request):
 
 def show_posts_view(request):
     posts_list = get_posts_list_from_db()
-    print(posts_list)
     return render(request, 'pages/posts.html', {"posts_list": posts_list})
 
 

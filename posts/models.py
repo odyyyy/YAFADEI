@@ -1,8 +1,10 @@
 import random
 from datetime import datetime
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 from tinymce import models as tinymce_models
 
@@ -18,15 +20,16 @@ class Posts(models.Model):
     karma = models.IntegerField(default=0, verbose_name='Карма')
     published_time = models.DateTimeField(default=datetime.now(), verbose_name='Время публикации')
     content = tinymce_models.HTMLField(verbose_name='Содержание статьи')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
     class Meta:
         verbose_name = "Посты"
         verbose_name_plural = "Посты"
-        ordering = ['id']
+        ordering = ['published_time']
+
 
     def __str__(self):
-        return f"Post: {self.title}"
+        return f"Пост: {self.title}"
 
 

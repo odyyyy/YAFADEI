@@ -27,5 +27,8 @@ def post_page_view(request, post_slug: str):
     return render(request, 'pages/post_page.html', {'post': post})
 
 
-def handle404Error(request):
-    pass
+def handle404Error(request, exception):
+    return render(request, 'pages/errors/404.html')
+
+def handle500Error(request):
+    return render(request, 'pages/errors/500.html')

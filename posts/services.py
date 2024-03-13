@@ -11,7 +11,7 @@ def get_posts_list_from_db():
     return list(Posts.objects.values().order_by('-published_time'))
 
 def get_post_from_db(post_slug: str):
-    post = Posts.objects.get(slug=post_slug)
+    post = get_object_or_404(Posts, slug=post_slug)
     return post
 
 def add_post_info_to_db(req):
@@ -33,8 +33,3 @@ def generate_post_slug(title: str):
     post_generated_id = ''.join([str(random.randint(0, 9)) for _ in range(5)])
     return slugify(title) + '-' + post_generated_id
 
-
-def generate_number_string():
-    """ функция для генерации строки из цифр (id) """
-
-    return ''.join([str(random.randint(0, 9)) for _ in range(5)])

@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hello World!</h1>
-<form method="post" action="{% url 'logout' %}">
+<form method="post">
     {% csrf_token %}
-    <button type="submit">Log Out</button>
+    {{ form.as_p }}
+    <button type="submit">Войти в аккаунт</button>
 </form>
 </body>
 </html>

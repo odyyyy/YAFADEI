@@ -8,7 +8,7 @@
 </head>
 <body>
     {% for post in posts_list %}
-        {{ post.title }}
+    <a href="{% url 'post_page' post_slug=post.slug %}">{{ post.title }}</a>
      <br>
         <img src="/media/{{ post.img }}" alt="Post Image" width="500px" height="500px">
     <br>

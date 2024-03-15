@@ -42,6 +42,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "plugins":
         "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table powerpaste advcode help wordcount spellchecker typography",
     "selector": "textarea",
+    "images_upload_url": "upload_image"
 };
 
 # Application definition

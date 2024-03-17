@@ -16,7 +16,7 @@ def get_post_from_db(post_slug: str):
 
 def add_post_info_to_db(req):
     """ Общая функция добавляющая всю информацию о созданном посте в БД """
-    print(req.POST)
+
     post_title = req.POST.get('title')
     post_image = req.FILES.get('img')
     post_content = req.POST.get('content')

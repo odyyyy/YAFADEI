@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.admin import AdminSite
+
 from posts.models import Posts
 
 
@@ -8,3 +10,4 @@ class PostsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Posts, PostsAdmin)
+AdminSite.site_header = "YAFADEI"

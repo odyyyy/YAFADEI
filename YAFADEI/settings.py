@@ -42,6 +42,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "plugins":
         "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table powerpaste advcode help wordcount spellchecker typography",
     "selector": "textarea",
+    "images_upload_url": "upload_image"
 };
 
 # Application definition
@@ -136,7 +137,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [BASE_DIR / "static/css", ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

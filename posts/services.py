@@ -21,9 +21,10 @@ def add_post_info_to_db(req):
     post_image = req.FILES.get('img')
     post_content = req.POST.get('content')
     post_user = req.user
+    
     post_slug = generate_post_slug(post_title)
-
-    if post_image != '':
+    print(post_image, post_image is not None)
+    if post_image is not None:
         Posts.objects.create(slug=post_slug, title=post_title, img=post_image, content=post_content, user=post_user)
     else:
         Posts.objects.create(slug=post_slug, title=post_title, content=post_content, user=post_user)

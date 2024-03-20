@@ -7,13 +7,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0002_alter_postcards_img'),
+        ("posts", "0002_alter_postcards_img"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='posts',
-            name='slug',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='posts.postcards'),
+            model_name="posts",
+            name="slug",
+            field=models.OneToOneField(
+                on_delete=django.db.models.deletion.CASCADE, to="posts.postcards"
+            ),
         ),
     ]

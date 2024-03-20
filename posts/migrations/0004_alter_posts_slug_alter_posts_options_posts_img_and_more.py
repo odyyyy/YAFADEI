@@ -9,53 +9,69 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0003_alter_posts_slug'),
+        ("posts", "0003_alter_posts_slug"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='posts',
-            name='slug',
-            field=models.SlugField(max_length=255, unique=True, verbose_name='URL'),
+            model_name="posts",
+            name="slug",
+            field=models.SlugField(max_length=255, unique=True, verbose_name="URL"),
         ),
         migrations.AlterModelOptions(
-            name='posts',
-            options={'ordering': ['id'], 'verbose_name': 'Посты', 'verbose_name_plural': 'Посты'},
+            name="posts",
+            options={
+                "ordering": ["id"],
+                "verbose_name": "Посты",
+                "verbose_name_plural": "Посты",
+            },
         ),
         migrations.AddField(
-            model_name='posts',
-            name='img',
-            field=models.ImageField(default='media/svg/no_image_avaliable.svg', upload_to='photos/%Y/%m/%d/', verbose_name='Фото'),
+            model_name="posts",
+            name="img",
+            field=models.ImageField(
+                default="media/svg/no_image_avaliable.svg",
+                upload_to="photos/%Y/%m/%d/",
+                verbose_name="Фото",
+            ),
         ),
         migrations.AddField(
-            model_name='posts',
-            name='karma',
-            field=models.IntegerField(default=0, verbose_name='Карма'),
+            model_name="posts",
+            name="karma",
+            field=models.IntegerField(default=0, verbose_name="Карма"),
         ),
         migrations.AddField(
-            model_name='posts',
-            name='published_time',
-            field=models.DateTimeField(default='2024-03-11 00:27:39', verbose_name='Время публикации'),
+            model_name="posts",
+            name="published_time",
+            field=models.DateTimeField(
+                default="2024-03-11 00:27:39", verbose_name="Время публикации"
+            ),
         ),
         migrations.AddField(
-            model_name='posts',
-            name='title',
-            field=models.CharField(default=1, max_length=255, verbose_name='Заголовок поста'),
+            model_name="posts",
+            name="title",
+            field=models.CharField(
+                default=1, max_length=255, verbose_name="Заголовок поста"
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='posts',
-            name='user',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            model_name="posts",
+            name="user",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to=settings.AUTH_USER_MODEL,
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='posts',
-            name='content',
-            field=tinymce.models.HTMLField(verbose_name='Содержание статьи'),
+            model_name="posts",
+            name="content",
+            field=tinymce.models.HTMLField(verbose_name="Содержание статьи"),
         ),
         migrations.DeleteModel(
-            name='PostCards',
+            name="PostCards",
         ),
     ]

@@ -7,8 +7,10 @@ from posts.models import Posts
 class AddPostForm(forms.ModelForm):
     class Meta:
         model = Posts
-        fields = ('title', 'img', 'content')
-        widgets = {'content': TinyMCE(attrs={'cols': 80,
-                                             'rows': 30,
-                                             "content_language": 'ru_RU'},
-                                      content_language='ru_RU')}
+        fields = ("title", "img", "content")
+        widgets = {
+            "content": TinyMCE(
+                attrs={"cols": 80, "rows": 30, "content_language": "ru_RU"},
+                content_language="ru_RU",
+            )
+        }

@@ -1,8 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from posts.views import PostPageView
 
 urlpatterns = [
-    path('<slug:slug>/', PostPageView.as_view(), name="post_page"),
+    path("<slug:slug>/", PostPageView.as_view(), name="post_page"),
 ]

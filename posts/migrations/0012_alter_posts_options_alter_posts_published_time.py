@@ -7,17 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0011_alter_posts_published_time'),
+        ("posts", "0011_alter_posts_published_time"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='posts',
-            options={'ordering': ['-published_time'], 'verbose_name': 'Посты', 'verbose_name_plural': 'Посты'},
+            name="posts",
+            options={
+                "ordering": ["-published_time"],
+                "verbose_name": "Посты",
+                "verbose_name_plural": "Посты",
+            },
         ),
         migrations.AlterField(
-            model_name='posts',
-            name='published_time',
-            field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='Время публикации'),
+            model_name="posts",
+            name="published_time",
+            field=models.DateTimeField(
+                default=django.utils.timezone.now, verbose_name="Время публикации"
+            ),
         ),
     ]

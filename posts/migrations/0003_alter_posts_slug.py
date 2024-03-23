@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
             model_name="posts",
             name="slug",
             field=models.OneToOneField(
-                on_delete=django.db.models.deletion.CASCADE, to="posts.postcards"
+                on_delete=django.db.models.deletion.CASCADE,
+                to="posts.postcards",
             ),
         ),
     ]

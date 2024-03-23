@@ -4,8 +4,13 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import include, path
 
-from posts.views import (AllPostsPageView, add_new_post_view, handle404Error,
-                         handle500Error, homepage_view)
+from posts.views import (
+    AllPostsPageView,
+    add_new_post_view,
+    handle404Error,
+    handle500Error,
+    homepage_view,
+)
 from users.views import LoginUser, RegisterUser
 
 urlpatterns = [

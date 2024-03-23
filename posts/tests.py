@@ -14,7 +14,9 @@ class PostsServiceTests(TestCase):
 class PostsViewTests(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        self.user = User.objects.create_user(username="testuser", password="12345")
+        self.user = User.objects.create_user(
+            username="testuser", password="12345"
+        )
         self.post = Posts.objects.create(
             title="Test Post",
             content="Test Content",
@@ -29,9 +31,14 @@ class PostsViewTests(TestCase):
 
     def test_post_page(self):
         post = Posts.objects.create(
-            title="Test Post", slug="test-post", content="Test content", user_id=1
+            title="Test Post",
+            slug="test-post",
+            content="Test content",
+            user_id=1,
         )
 
-        response = self.client.get(reverse("post_page", kwargs={"slug": post.slug}))
+        response = self.client.get(
+            reverse("post_page", kwargs={"slug": post.slug})
+        )
         self.assertTemplateUsed(response, "pages/posts/post_page.html")
         self.assertEqual(response.status_code, 200)

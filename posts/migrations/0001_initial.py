@@ -26,7 +26,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "title",
-                    models.CharField(max_length=255, verbose_name="Заголовок поста"),
+                    models.CharField(
+                        max_length=255, verbose_name="Заголовок поста"
+                    ),
                 ),
                 (
                     "img",
@@ -36,7 +38,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "slug",
-                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                    models.SlugField(
+                        max_length=255, unique=True, verbose_name="URL"
+                    ),
                 ),
                 ("karma", models.IntegerField(default=0, verbose_name="Карма")),
                 (

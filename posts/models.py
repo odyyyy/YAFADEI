@@ -15,7 +15,9 @@ class Posts(models.Model):
         max_length=255, db_index=True, unique=True, verbose_name="URL"
     )
     karma = models.IntegerField(default=0, verbose_name="Карма")
-    published_time = models.DateTimeField(default=now, verbose_name="Время публикации")
+    published_time = models.DateTimeField(
+        default=now, verbose_name="Время публикации"
+    )
     content = tinymce_models.HTMLField(verbose_name="Содержание статьи")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 

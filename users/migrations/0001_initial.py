@@ -27,7 +27,10 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("password", models.CharField(max_length=128, verbose_name="password")),
+                (
+                    "password",
+                    models.CharField(max_length=128, verbose_name="password"),
+                ),
                 (
                     "last_login",
                     models.DateTimeField(
@@ -94,7 +97,8 @@ class Migration(migrations.Migration):
                 (
                     "date_joined",
                     models.DateTimeField(
-                        default=django.utils.timezone.now, verbose_name="date joined"
+                        default=django.utils.timezone.now,
+                        verbose_name="date joined",
                     ),
                 ),
                 ("favorite_posts", models.JSONField(default=list)),
@@ -107,7 +111,8 @@ class Migration(migrations.Migration):
                 (
                     "user_permissions",
                     models.ManyToManyField(
-                        related_name="custom_user_permissions", to="auth.permission"
+                        related_name="custom_user_permissions",
+                        to="auth.permission",
                     ),
                 ),
             ],

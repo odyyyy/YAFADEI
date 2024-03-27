@@ -36,7 +36,10 @@ def add_post_info_to_db(req):
         )
     else:
         Posts.objects.create(
-            slug=post_slug, title=post_title, content=post_content, user=post_user
+            slug=post_slug,
+            title=post_title,
+            content=post_content,
+            user=post_user,
         )
 
 

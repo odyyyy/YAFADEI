@@ -23,7 +23,8 @@ class Migration(migrations.Migration):
             model_name="posts",
             name="published_time",
             field=models.DateTimeField(
-                default=django.utils.timezone.now, verbose_name="Время публикации"
+                default=django.utils.timezone.now,
+                verbose_name="Время публикации",
             ),
         ),
     ]

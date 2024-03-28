@@ -1,0 +1,33 @@
+@import url('https://fonts.cdnfonts.com/css/yeseva-one');
+
+.header {
+    display: flex;
+    height : 16vh;
+    background-color : green;
+    justify-content : space-between;
+    align-items : center;
+}
+
+.title {
+    display : inline-block;
+    font-family : 'Yeseva One';
+    font-size : 30px;
+    margin-left: 10px;
+}
+
+.login-links {
+    display : inline;
+    margin-right: 10px;
+}
+
+.login-links a {
+    color : black;
+    text-decoration : none;
+    margin : auto 5px auto 5px;
+}
+
+.login-links a:hover {
+    text-decoration : underline;
+    color : #f32f24;
+}
+

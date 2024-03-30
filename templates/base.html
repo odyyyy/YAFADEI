@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css-reset.css' %}">
     <link rel="stylesheet" href="{% static 'header.css' %}">
+    <!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    -->
+    {% block links %}
+
+    {% endblock links %}
+
     {% block title %}
     {% endblock title %}
 </head>
@@ -20,10 +29,32 @@
 </header>
 {% endblock header %}
 
+
+{% block searchbar %}
+<div class="searchbar-container">
+<form action="" method="get" >
+    <input name="s" placeholder="Искать здесь..." type="search" class="input">
+</form>
+</div>
+{% endblock searchbar %}
+
 {% block menu %}
+<aside class="menu">
+    <nav>
+        <ul>
+            <li class="menu-elem"><a href="">Лента</a></li>
+            <li class="menu-elem"><a href="">Галерея</a></li>
+            <li class="menu-elem"><a href="">Подписки</a></li>
+            <li class="menu-elem"><a href="">Избранное</a></li>
+        </ul>
+    </nav>
+</aside>
 {% endblock menu %}
 
+<main>
 {% block content %}
 {% endblock content %}
+</main>
+
 </body>
 </html>

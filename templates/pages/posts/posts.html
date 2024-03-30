@@ -1,17 +1,28 @@
 <!-- Страница со списком постов (карточками постов) -->
 {% extends 'base.html' %}
-{% block content %}
-    {% for post in posts_list %}
-    <a href="{% url 'post_page' slug=post.slug %}">{{ post.title }}</a>
-     <br>
-        <img src="/media/{{ post.img }}" alt="Post Image" width="500px" height="500px">
-    <br>
-        {{ post.published_time }}
-    <br>
-        {{ post.karma }}
-    <br>
-    <br>
-    <br>
 
+{% block links %}
+{% load static %}
+ <link rel="stylesheet" href="{% static 'posts-list-style.css' %}">
+ <link rel="stylesheet" href="{% static 'menu-style.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <div class="container">
+    {% for post in posts_list %}
+    <div class="post">
+        <div class="container-author">
+            <div class="avatar"></div>
+            <div class="name-data-container">
+                <p>Алексей</p>
+                <p class="time">{{ post.published_time }}</p>
+            </div>
+        </div>
+        <h2><a href="{% url 'post_page' slug=post.slug %}" class="post-title">{{ post.title }}</a></h2>
+        <img src="/media/{{ post.img }}" alt="Post Image" class="post-img">
+
+        <p class="karma">{{ post.karma }}</p>
+    </div>
     {% endfor %}
+    </div>
 {% endblock content %}

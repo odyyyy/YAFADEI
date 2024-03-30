@@ -1,0 +1,15 @@
+.menu {
+    position: fixed;
+    height: 180px;
+    width: 160px;
+}
+
+.menu-elem {
+    list-style-type: none;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.menu-elem a {
+    text-decoration: none;
+}

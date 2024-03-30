@@ -1,12 +1,6 @@
 <!-- Страница со списком постов (карточками постов) -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     {% for post in posts_list %}
     <a href="{% url 'post_page' slug=post.slug %}">{{ post.title }}</a>
      <br>
@@ -20,5 +14,4 @@
     <br>
 
     {% endfor %}
-</body>
-</html>
+{% endblock content %}

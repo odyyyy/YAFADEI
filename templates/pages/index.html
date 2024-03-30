@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--  Так подключают статические файлы   -->
-    {% load static %}
-        <link rel="stylesheet" href="{% static 'header.css' %}">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<header class="header">
-    <p class="title">YAFADEI</p>
-
-    <p class="login-links">
-        <a href="">Регистрация</a>
-        <a href="">Вход</a>
-    </p>
-</header>
+{% extends "base.html" %}
+{% block content %}
 <h1>Hello World!</h1>
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">Log Out</button>
 </form>
-</body>
-</html>
+{% endblock content %}

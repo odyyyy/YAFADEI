@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css-reset.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    {% block title %}
+    {% endblock title %}
 </head>
 <body>
+{% block header %}
+<header class="header">
+    <p class="title">YAFADEI</p>
 
+    <p class="login-links">
+        <a href="">Регистрация</a>
+        <a href="">Вход</a>
+    </p>
+</header>
+{% endblock header %}
+
+{% block menu %}
+{% endblock menu %}
+
+{% block content %}
+{% endblock content %}
 </body>
 </html>

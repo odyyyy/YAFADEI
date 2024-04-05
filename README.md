@@ -1,15 +1,12 @@
 # YAFADEI
 Интернет-ресурс для размещения постов и работ, посвященных изобразительному искусству.
 
-
 ## Технологии 
 
 - [Python 3.12](https://www.python.org/)
 - [Django 5.0.3](https://www.djangoproject.com/) 
 
-
 ## Установка и запуск 
-
 Создайте и активируйте виртуальное окружение:
 * Windows
 
@@ -23,7 +20,6 @@ venv\Scripts\activate
 python3 -m venv venv
 source venv/bin/activate
 ```
-
 Установите основные зависимости проекта:
 ```sh
 pip install --upgrade pip

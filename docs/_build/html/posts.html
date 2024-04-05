@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>posts package &mdash; документация YAFADEI 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=9ca2116e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=29b1f277"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            YAFADEI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">posts package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-posts.admin">posts.admin module</a><ul>
+<li><a class="reference internal" href="#posts.admin.PostsAdmin"><code class="docutils literal notranslate"><span class="pre">PostsAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#posts.admin.PostsAdmin.media"><code class="docutils literal notranslate"><span class="pre">PostsAdmin.media</span></code></a></li>
+<li><a class="reference internal" href="#posts.admin.PostsAdmin.prepopulated_fields"><code class="docutils literal notranslate"><span class="pre">PostsAdmin.prepopulated_fields</span></code></a></li>
+<li><a class="reference internal" href="#posts.admin.PostsAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">PostsAdmin.search_fields</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.apps">posts.apps module</a><ul>
+<li><a class="reference internal" href="#posts.apps.PostsConfig"><code class="docutils literal notranslate"><span class="pre">PostsConfig</span></code></a><ul>
+<li><a class="reference internal" href="#posts.apps.PostsConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">PostsConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#posts.apps.PostsConfig.name"><code class="docutils literal notranslate"><span class="pre">PostsConfig.name</span></code></a></li>
+<li><a class="reference internal" href="#posts.apps.PostsConfig.verbose_name"><code class="docutils literal notranslate"><span class="pre">PostsConfig.verbose_name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.forms">posts.forms module</a><ul>
+<li><a class="reference internal" href="#posts.forms.AddPostForm"><code class="docutils literal notranslate"><span class="pre">AddPostForm</span></code></a><ul>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.Meta"><code class="docutils literal notranslate"><span class="pre">AddPostForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">AddPostForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">AddPostForm.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">AddPostForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.base_fields"><code class="docutils literal notranslate"><span class="pre">AddPostForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">AddPostForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#posts.forms.AddPostForm.media"><code class="docutils literal notranslate"><span class="pre">AddPostForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.models">posts.models module</a><ul>
+<li><a class="reference internal" href="#posts.models.Posts"><code class="docutils literal notranslate"><span class="pre">Posts</span></code></a><ul>
+<li><a class="reference internal" href="#posts.models.Posts.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Posts.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Posts.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.content"><code class="docutils literal notranslate"><span class="pre">Posts.content</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.get_next_by_published_time"><code class="docutils literal notranslate"><span class="pre">Posts.get_next_by_published_time()</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.get_previous_by_published_time"><code class="docutils literal notranslate"><span class="pre">Posts.get_previous_by_published_time()</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.id"><code class="docutils literal notranslate"><span class="pre">Posts.id</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.img"><code class="docutils literal notranslate"><span class="pre">Posts.img</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.karma"><code class="docutils literal notranslate"><span class="pre">Posts.karma</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.objects"><code class="docutils literal notranslate"><span class="pre">Posts.objects</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.published_time"><code class="docutils literal notranslate"><span class="pre">Posts.published_time</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.save"><code class="docutils literal notranslate"><span class="pre">Posts.save()</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.slug"><code class="docutils literal notranslate"><span class="pre">Posts.slug</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.title"><code class="docutils literal notranslate"><span class="pre">Posts.title</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.user"><code class="docutils literal notranslate"><span class="pre">Posts.user</span></code></a></li>
+<li><a class="reference internal" href="#posts.models.Posts.user_id"><code class="docutils literal notranslate"><span class="pre">Posts.user_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.services">posts.services module</a><ul>
+<li><a class="reference internal" href="#posts.services.add_post_info_to_db"><code class="docutils literal notranslate"><span class="pre">add_post_info_to_db()</span></code></a></li>
+<li><a class="reference internal" href="#posts.services.generate_post_slug"><code class="docutils literal notranslate"><span class="pre">generate_post_slug()</span></code></a></li>
+<li><a class="reference internal" href="#posts.services.get_post_from_db"><code class="docutils literal notranslate"><span class="pre">get_post_from_db()</span></code></a></li>
+<li><a class="reference internal" href="#posts.services.get_posts_list_from_db"><code class="docutils literal notranslate"><span class="pre">get_posts_list_from_db()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.tests">posts.tests module</a><ul>
+<li><a class="reference internal" href="#posts.tests.PostsServiceTests"><code class="docutils literal notranslate"><span class="pre">PostsServiceTests</span></code></a></li>
+<li><a class="reference internal" href="#posts.tests.PostsViewTests"><code class="docutils literal notranslate"><span class="pre">PostsViewTests</span></code></a><ul>
+<li><a class="reference internal" href="#posts.tests.PostsViewTests.setUp"><code class="docutils literal notranslate"><span class="pre">PostsViewTests.setUp()</span></code></a></li>
+<li><a class="reference internal" href="#posts.tests.PostsViewTests.test_homepage"><code class="docutils literal notranslate"><span class="pre">PostsViewTests.test_homepage()</span></code></a></li>
+<li><a class="reference internal" href="#posts.tests.PostsViewTests.test_post_page"><code class="docutils literal notranslate"><span class="pre">PostsViewTests.test_post_page()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts.urls">posts.urls module</a></li>
+<li><a class="reference internal" href="#module-posts.views">posts.views module</a><ul>
+<li><a class="reference internal" href="#posts.views.AllPostsPageView"><code class="docutils literal notranslate"><span class="pre">AllPostsPageView</span></code></a><ul>
+<li><a class="reference internal" href="#posts.views.AllPostsPageView.context_object_name"><code class="docutils literal notranslate"><span class="pre">AllPostsPageView.context_object_name</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.AllPostsPageView.queryset"><code class="docutils literal notranslate"><span class="pre">AllPostsPageView.queryset</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.AllPostsPageView.template_name"><code class="docutils literal notranslate"><span class="pre">AllPostsPageView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#posts.views.PostPageView"><code class="docutils literal notranslate"><span class="pre">PostPageView</span></code></a><ul>
+<li><a class="reference internal" href="#posts.views.PostPageView.context_object_name"><code class="docutils literal notranslate"><span class="pre">PostPageView.context_object_name</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.PostPageView.model"><code class="docutils literal notranslate"><span class="pre">PostPageView.model</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.PostPageView.template_name"><code class="docutils literal notranslate"><span class="pre">PostPageView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#posts.views.add_new_post_view"><code class="docutils literal notranslate"><span class="pre">add_new_post_view()</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.handle404Error"><code class="docutils literal notranslate"><span class="pre">handle404Error()</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.handle500Error"><code class="docutils literal notranslate"><span class="pre">handle500Error()</span></code></a></li>
+<li><a class="reference internal" href="#posts.views.homepage_view"><code class="docutils literal notranslate"><span class="pre">homepage_view()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-posts">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">YAFADEI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">posts package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/posts.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="posts-package">
+<h1>posts package<a class="headerlink" href="#posts-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="posts.migrations.html">posts.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0001_initial">posts.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0002_alter_postcards_img">posts.migrations.0002_alter_postcards_img module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0002_alter_postcards_img.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0002_alter_postcards_img.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0002_alter_postcards_img.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0003_alter_posts_slug">posts.migrations.0003_alter_posts_slug module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0003_alter_posts_slug.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0003_alter_posts_slug.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0003_alter_posts_slug.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0004_alter_posts_slug_alter_posts_options_posts_img_and_more">posts.migrations.0004_alter_posts_slug_alter_posts_options_posts_img_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0004_alter_posts_slug_alter_posts_options_posts_img_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0004_alter_posts_slug_alter_posts_options_posts_img_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0004_alter_posts_slug_alter_posts_options_posts_img_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0005_alter_posts_published_time">posts.migrations.0005_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0005_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0005_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0005_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0006_alter_posts_img_alter_posts_published_time">posts.migrations.0006_alter_posts_img_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0006_alter_posts_img_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0006_alter_posts_img_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0006_alter_posts_img_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0007_alter_posts_options_alter_posts_published_time">posts.migrations.0007_alter_posts_options_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0007_alter_posts_options_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0007_alter_posts_options_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0007_alter_posts_options_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0008_alter_posts_published_time">posts.migrations.0008_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0008_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0008_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0008_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0009_alter_posts_published_time">posts.migrations.0009_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0009_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0009_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0009_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0010_alter_posts_published_time">posts.migrations.0010_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0010_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0010_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0010_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0011_alter_posts_published_time">posts.migrations.0011_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0011_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0011_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0011_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0012_alter_posts_options_alter_posts_published_time">posts.migrations.0012_alter_posts_options_alter_posts_published_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="posts.migrations.html#posts.migrations.0012_alter_posts_options_alter_posts_published_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0012_alter_posts_options_alter_posts_published_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="posts.migrations.html#posts.migrations.0012_alter_posts_options_alter_posts_published_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-posts.admin">
+<span id="posts-admin-module"></span><h2>posts.admin module<a class="headerlink" href="#module-posts.admin" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.admin.PostsAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.admin.</span></span><span class="sig-name descname"><span class="pre">PostsAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/admin.html#PostsAdmin"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.admin.PostsAdmin" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="posts.admin.PostsAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#posts.admin.PostsAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.admin.PostsAdmin.prepopulated_fields">
+<span class="sig-name descname"><span class="pre">prepopulated_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'slug':</span> <span class="pre">('title',)}</span></em><a class="headerlink" href="#posts.admin.PostsAdmin.prepopulated_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.admin.PostsAdmin.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('title',)</span></em><a class="headerlink" href="#posts.admin.PostsAdmin.search_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.apps">
+<span id="posts-apps-module"></span><h2>posts.apps module<a class="headerlink" href="#module-posts.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.apps.</span></span><span class="sig-name descname"><span class="pre">PostsConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/apps.html#PostsConfig"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.apps.PostsConfig" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.apps.PostsConfig.verbose_name">
+<span class="sig-name descname"><span class="pre">verbose_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Посты'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.verbose_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.forms">
+<span id="posts-forms-module"></span><h2>posts.forms module<a class="headerlink" href="#module-posts.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.forms.</span></span><span class="sig-name descname"><span class="pre">AddPostForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/forms.html#AddPostForm"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.forms.AddPostForm" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Форма для добавление нового поста</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/posts/forms.html#AddPostForm.Meta"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.forms.AddPostForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('title',</span> <span class="pre">'img',</span> <span class="pre">'content')</span></em><a class="headerlink" href="#posts.forms.AddPostForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.forms.AddPostForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Posts" title="posts.models.Posts"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posts</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;tinymce.widgets.TinyMCE</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.AddPostForm.Meta.widgets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'img':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.AddPostForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#posts.forms.AddPostForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="posts.forms.AddPostForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#posts.forms.AddPostForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.models">
+<span id="posts-models-module"></span><h2>posts.models module<a class="headerlink" href="#module-posts.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.models.Posts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.models.</span></span><span class="sig-name descname"><span class="pre">Posts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Posts"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.models.Posts" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Модель для хранения данных о постах</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="posts.models.Posts.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#posts.models.Posts.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="posts.models.Posts.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#posts.models.Posts.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.content">
+<span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#posts.models.Posts.content" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Posts.get_next_by_published_time">
+<span class="sig-name descname"><span class="pre">get_next_by_published_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">published_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Posts.get_next_by_published_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Posts.get_previous_by_published_time">
+<span class="sig-name descname"><span class="pre">get_previous_by_published_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">published_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Posts.get_previous_by_published_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#posts.models.Posts.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.img">
+<span class="sig-name descname"><span class="pre">img</span></span><a class="headerlink" href="#posts.models.Posts.img" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.karma">
+<span class="sig-name descname"><span class="pre">karma</span></span><a class="headerlink" href="#posts.models.Posts.karma" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#posts.models.Posts.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.published_time">
+<span class="sig-name descname"><span class="pre">published_time</span></span><a class="headerlink" href="#posts.models.Posts.published_time" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.models.Posts.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Posts.save"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.models.Posts.save" title="Link to this definition"></a></dt>
+<dd><p>При сохранении записи добавляем id в конец слага если он уже не добавлен
+(при добавления постов через админку)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.slug">
+<span class="sig-name descname"><span class="pre">slug</span></span><a class="headerlink" href="#posts.models.Posts.slug" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#posts.models.Posts.title" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#posts.models.Posts.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.models.Posts.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#posts.models.Posts.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.services">
+<span id="posts-services-module"></span><h2>posts.services module<a class="headerlink" href="#module-posts.services" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.services.add_post_info_to_db">
+<span class="sig-prename descclassname"><span class="pre">posts.services.</span></span><span class="sig-name descname"><span class="pre">add_post_info_to_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/services.html#add_post_info_to_db"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.services.add_post_info_to_db" title="Link to this definition"></a></dt>
+<dd><p>Общая функция добавляющая всю информацию о созданном посте в БД</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.services.generate_post_slug">
+<span class="sig-prename descclassname"><span class="pre">posts.services.</span></span><span class="sig-name descname"><span class="pre">generate_post_slug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/services.html#generate_post_slug"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.services.generate_post_slug" title="Link to this definition"></a></dt>
+<dd><p>Функция для генерация слага по заголовку поста</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.services.get_post_from_db">
+<span class="sig-prename descclassname"><span class="pre">posts.services.</span></span><span class="sig-name descname"><span class="pre">get_post_from_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">post_slug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/services.html#get_post_from_db"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.services.get_post_from_db" title="Link to this definition"></a></dt>
+<dd><p>Функция получения поста из БД по слагу</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.services.get_posts_list_from_db">
+<span class="sig-prename descclassname"><span class="pre">posts.services.</span></span><span class="sig-name descname"><span class="pre">get_posts_list_from_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/services.html#get_posts_list_from_db"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.services.get_posts_list_from_db" title="Link to this definition"></a></dt>
+<dd><p>Функция для получения всех постов, отсортированных по времени</p>
+</dd></dl>
+
+</section>
+<section id="module-posts.tests">
+<span id="posts-tests-module"></span><h2>posts.tests module<a class="headerlink" href="#module-posts.tests" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.PostsServiceTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.</span></span><span class="sig-name descname"><span class="pre">PostsServiceTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/tests.html#PostsServiceTests"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.tests.PostsServiceTests" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.tests.PostsViewTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.tests.</span></span><span class="sig-name descname"><span class="pre">PostsViewTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/tests.html#PostsViewTests"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.tests.PostsViewTests" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<p>Модульное тестирование вью</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.PostsViewTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/tests.html#PostsViewTests.setUp"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.tests.PostsViewTests.setUp" title="Link to this definition"></a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.PostsViewTests.test_homepage">
+<span class="sig-name descname"><span class="pre">test_homepage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/tests.html#PostsViewTests.test_homepage"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.tests.PostsViewTests.test_homepage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="posts.tests.PostsViewTests.test_post_page">
+<span class="sig-name descname"><span class="pre">test_post_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/tests.html#PostsViewTests.test_post_page"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.tests.PostsViewTests.test_post_page" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-posts.urls">
+<span id="posts-urls-module"></span><h2>posts.urls module<a class="headerlink" href="#module-posts.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-posts.views">
+<span id="posts-views-module"></span><h2>posts.views module<a class="headerlink" href="#module-posts.views" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.AllPostsPageView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">AllPostsPageView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#AllPostsPageView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.AllPostsPageView" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>Вью для страницы со списком всех постов</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.AllPostsPageView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'posts_list'</span></em><a class="headerlink" href="#posts.views.AllPostsPageView.context_object_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.AllPostsPageView.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[{'content':</span> <span class="pre">'&lt;p&gt;fsad&lt;/p&gt;',</span> <span class="pre">'id':</span> <span class="pre">33,</span> <span class="pre">'img':</span> <span class="pre">'photos/2024/03/16/babochka-krasivaya-pestraya-67_BHNxmGB.jpg',</span> <span class="pre">'karma':</span> <span class="pre">0,</span> <span class="pre">'published_time':</span> <span class="pre">datetime.datetime(2024,</span> <span class="pre">3,</span> <span class="pre">15,</span> <span class="pre">21,</span> <span class="pre">48,</span> <span class="pre">44,</span> <span class="pre">tzinfo=datetime.timezone.utc),</span> <span class="pre">'slug':</span> <span class="pre">'vcxvxcadasd-33',</span> <span class="pre">'title':</span> <span class="pre">'vcxvxcadasd',</span> <span class="pre">'user_id':</span> <span class="pre">1},</span> <span class="pre">{'content':</span> <span class="pre">'&lt;p&gt;1в&lt;/p&gt;',</span> <span class="pre">'id':</span> <span class="pre">20,</span> <span class="pre">'img':</span> <span class="pre">'/svg/no_image_avaliable.svg',</span> <span class="pre">'karma':</span> <span class="pre">1,</span> <span class="pre">'published_time':</span> <span class="pre">datetime.datetime(2024,</span> <span class="pre">3,</span> <span class="pre">14,</span> <span class="pre">18,</span> <span class="pre">49,</span> <span class="pre">3,</span> <span class="pre">tzinfo=datetime.timezone.utc),</span> <span class="pre">'slug':</span> <span class="pre">'moj-post-novyj-20',</span> <span class="pre">'title':</span> <span class="pre">'мой</span> <span class="pre">пост</span> <span class="pre">новый',</span> <span class="pre">'user_id':</span> <span class="pre">1},</span> <span class="pre">{'content':</span> <span class="pre">'&lt;h1&gt;dsadasdasdasddsdвфыфывф&lt;/h1&gt;\r\n&lt;p&gt;&lt;strong&gt;выфвфы&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;&lt;strong&gt;вфы&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфы&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;&lt;iframe</span> <span class="pre">src=&quot;https://www.youtube.com/embed/oVNJiO10SWw&quot;</span> <span class="pre">width=&quot;560&quot;</span> <span class="pre">height=&quot;314&quot;</span> <span class="pre">allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;</span> <span class="pre">font-family:</span> <span class="pre">\'book</span> <span class="pre">antiqua\',</span> <span class="pre">palatino,</span> <span class="pre">serif;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфыв&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;</span> <span class="pre">font-family:</span> <span class="pre">tahoma,</span> <span class="pre">arial,</span> <span class="pre">helvetica,</span> <span class="pre">sans-serif;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфывф&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;</span> <span class="pre">font-family:</span> <span class="pre">tahoma,</span> <span class="pre">arial,</span> <span class="pre">helvetica,</span> <span class="pre">sans-serif;</span> <span class="pre">color:</span> <span class="pre">#e03e2d;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфывфывфы&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;</span> <span class="pre">font-family:</span> <span class="pre">tahoma,</span> <span class="pre">arial,</span> <span class="pre">helvetica,</span> <span class="pre">sans-serif;</span> <span class="pre">color:</span> <span class="pre">#e03e2d;</span> <span class="pre">background-color:</span> <span class="pre">#843fa1;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфы&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">line-through;</span> <span class="pre">font-family:</span> <span class="pre">tahoma,</span> <span class="pre">arial,</span> <span class="pre">helvetica,</span> <span class="pre">sans-serif;</span> <span class="pre">color:</span> <span class="pre">#e03e2d;</span> <span class="pre">background-color:</span> <span class="pre">#843fa1;&quot;&gt;&lt;span</span> <span class="pre">style=&quot;text-decoration:</span> <span class="pre">underline;&quot;&gt;&lt;em&gt;&lt;strong&gt;выфвфывфы&lt;/strong&gt;&lt;/em&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;',</span> <span class="pre">'id':</span> <span class="pre">16,</span> <span class="pre">'img':</span> <span class="pre">'photos/2024/03/13/kenopro79-rateyourmusic-Cover-Art.jpg',</span> <span class="pre">'karma':</span> <span class="pre">0,</span> <span class="pre">'published_time':</span> <span class="pre">datetime.datetime(2024,</span> <span class="pre">3,</span> <span class="pre">13,</span> <span class="pre">20,</span> <span class="pre">3,</span> <span class="pre">43,</span> <span class="pre">853243,</span> <span class="pre">tzinfo=datetime.timezone.utc),</span> <span class="pre">'slug':</span> <span class="pre">'-42684',</span> <span class="pre">'title':</span> <span class="pre">'пару</span> <span class="pre">слов</span> <span class="pre">базы',</span> <span class="pre">'user_id':</span> <span class="pre">2},</span> <span class="pre">{'content':</span> <span class="pre">'&lt;p&gt;выфвфывфы&lt;/p&gt;',</span> <span class="pre">'id':</span> <span class="pre">14,</span> <span class="pre">'img':</span> <span class="pre">'photos/2024/03/11/2_h4T6dWI.png',</span> <span class="pre">'karma':</span> <span class="pre">1,</span> <span class="pre">'published_time':</span> <span class="pre">datetime.datetime(2024,</span> <span class="pre">3,</span> <span class="pre">11,</span> <span class="pre">20,</span> <span class="pre">7,</span> <span class="pre">2,</span> <span class="pre">tzinfo=datetime.timezone.utc),</span> <span class="pre">'slug':</span> <span class="pre">'avav',</span> <span class="pre">'title':</span> <span class="pre">'авав',</span> <span class="pre">'user_id':</span> <span class="pre">1},</span> <span class="pre">{'content':</span> <span class="pre">'&lt;p&gt;выф&lt;/p&gt;',</span> <span class="pre">'id':</span> <span class="pre">15,</span> <span class="pre">'img':</span> <span class="pre">'/svg/no_image_avaliable.svg',</span> <span class="pre">'karma':</span> <span class="pre">0,</span> <span class="pre">'published_time':</span> <span class="pre">datetime.datetime(2024,</span> <span class="pre">3,</span> <span class="pre">11,</span> <span class="pre">20,</span> <span class="pre">7,</span> <span class="pre">2,</span> <span class="pre">tzinfo=datetime.timezone.utc),</span> <span class="pre">'slug':</span> <span class="pre">'vyfvvyfvfy',</span> <span class="pre">'title':</span> <span class="pre">'выфвВыфвфы',</span> <span class="pre">'user_id':</span> <span class="pre">1}]</span></em><a class="headerlink" href="#posts.views.AllPostsPageView.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.AllPostsPageView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pages/posts/posts.html'</span></em><a class="headerlink" href="#posts.views.AllPostsPageView.template_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="posts.views.PostPageView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">PostPageView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#PostPageView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.PostPageView" title="Link to this definition"></a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code></p>
+<p>Вью для страницы поста</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostPageView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'post'</span></em><a class="headerlink" href="#posts.views.PostPageView.context_object_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostPageView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#posts.views.PostPageView.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Posts" title="posts.models.Posts"><code class="xref py py-class docutils literal notranslate"><span class="pre">Posts</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="posts.views.PostPageView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pages/posts/post_page.html'</span></em><a class="headerlink" href="#posts.views.PostPageView.template_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.views.add_new_post_view">
+<span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">add_new_post_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#add_new_post_view"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.add_new_post_view" title="Link to this definition"></a></dt>
+<dd><p>Вью для страницы добавления новых постов</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.views.handle404Error">
+<span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">handle404Error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#handle404Error"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.handle404Error" title="Link to this definition"></a></dt>
+<dd><p>Вью для обработки ошибки 404</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.views.handle500Error">
+<span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">handle500Error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#handle500Error"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.handle500Error" title="Link to this definition"></a></dt>
+<dd><p>Вью для обработки ошибки 500</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="posts.views.homepage_view">
+<span class="sig-prename descclassname"><span class="pre">posts.views.</span></span><span class="sig-name descname"><span class="pre">homepage_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#homepage_view"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#posts.views.homepage_view" title="Link to this definition"></a></dt>
+<dd><p>Вью для главной страницы сайта</p>
+</dd></dl>
+
+</section>
+<section id="module-posts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-posts" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2024, Ilya &amp; Mark. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

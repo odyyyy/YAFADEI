@@ -12,6 +12,8 @@ class PostsServiceTests(TestCase):
 
 
 class PostsViewTests(TestCase):
+    """Модульное тестирование вью"""
+
     def setUp(self):
         self.factory = RequestFactory()
         self.user = User.objects.create_user(

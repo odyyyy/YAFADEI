@@ -8,10 +8,12 @@ from posts.models import Posts
 
 
 def get_posts_list_from_db():
+    """Функция для получения всех постов, отсортированных по времени"""
     return list(Posts.objects.values().order_by("-published_time"))
 
 
 def get_post_from_db(post_slug: str):
+    """Функция получения поста из БД по слагу"""
     post = get_object_or_404(Posts, slug=post_slug)
     return post
 
@@ -44,5 +46,6 @@ def add_post_info_to_db(req):
 
 
 def generate_post_slug(title: str):
+    """Функция для генерация слага по заголовку поста"""
     post_generated_id = "".join([str(random.randint(0, 9)) for _ in range(5)])
     return slugify(title) + "-" + post_generated_id

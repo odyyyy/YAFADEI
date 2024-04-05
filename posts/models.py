@@ -5,6 +5,8 @@ from tinymce import models as tinymce_models
 
 
 class Posts(models.Model):
+    """Модель для хранения данных о постах"""
+
     title = models.CharField(max_length=255, verbose_name="Заголовок поста")
     img = models.ImageField(
         upload_to="photos/%Y/%m/%d/",
@@ -22,7 +24,8 @@ class Posts(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def save(self, **kwargs):
-        """Добавляем id в конец слага если он уже не добавлен (для добавления постов через админку)"""
+        """При сохранении записи добавляем id в конец слага если он уже не добавлен
+        (при добавления постов через админку)"""
         super(Posts, self).save()
         if not self.slug.endswith("-" + str(self.id)):
             self.slug += "-" + str(self.id)

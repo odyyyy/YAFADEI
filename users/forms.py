@@ -4,8 +4,10 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 
 class UserRegisterForm(UserCreationForm):
+    """Форма для регистрации"""
+
     def __init__(self, *args, **kwargs):
-        """Убираем подсказки для полей ввода"""
+        """Конструктор в котором убираем подсказки для полей ввода"""
         super(UserCreationForm, self).__init__(*args, **kwargs)
         self.fields["username"].help_text = ""
         self.fields["password1"].help_text = ""
@@ -20,6 +22,8 @@ class UserRegisterForm(UserCreationForm):
 
 
 class LoginUserForm(AuthenticationForm):
+    """Форма для авторизации"""
+
     class Meta:
         model = get_user_model()
 

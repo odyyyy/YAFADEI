@@ -3,6 +3,8 @@ from django.db import models
 
 
 class User(AbstractUser):
+    """Расширенная модель пользователя"""
+
     favorite_posts = models.JSONField(default=list)
     groups = models.ManyToManyField(
         "auth.Group", related_name="custom_user_set"

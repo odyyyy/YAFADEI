@@ -1,13 +1,13 @@
 :root{
-    --container-width: 700px;
+    --post-size: 530px;
 }
 
 .post {
     width: 530px;
     height: 550px;
-    background-color: orange;
+    background-color: white;
     margin-bottom: 20px;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
 .post-img{
@@ -44,15 +44,15 @@
     position: absolute;
     right: 0;
     display: flex;
-    width: var(--container-width);
+    height: 100%;
+    width: calc(100% - 160px);
     flex-direction: column;
     align-items: center;
 }
 
 .searchbar-container {
-    width: 490px;
+    width: var(--post-size);
     display: block;
-    margin-left: calc(var(--container-width) / 2.5);
 }
 
 .input {
@@ -61,24 +61,23 @@
     border-radius: 18px;
     font-size: 1rem;
     margin: 15px 0 35px 0;
-  border: 2px solid #D0CFCE;
-  outline: none;
-  &:focus{
-    border: 2px solid #d40000;
-    background: #fccfcf;
-    transition: 0.35s ease;
-    color: #363636;
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease;
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease;
-  	 opacity: 0;
-     }
-   }
+    font-family: "Roboto", sans-serif;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    padding: 10px;
+    &:focus{
+        border: none;
+        background: #fccfcf;
+        transition: 0.35s ease;
+        color: #363636;
+        &::-webkit-input-placeholder{
+            transition: opacity 0.45s ease;
+            opacity: 0;
+        }
+    }
+}
+
+.input::placeholder{
+    margin-left: 100px;
 }

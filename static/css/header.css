@@ -25,9 +25,13 @@
 .login-links a {
     color : black;
     text-decoration : none;
-    margin : auto 5px auto 5px;
+    padding: 10px;
+    font-family: "Roboto", sans-serif;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .login-links a:hover {
     color : #f32f24;
+    background-color: red;
 }

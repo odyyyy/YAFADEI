@@ -1,15 +1,25 @@
 .menu {
     position: fixed;
     height: 180px;
-    width: 160px;
+    width: 170px;
 }
 
 .menu-elem {
     list-style-type: none;
     margin-bottom: 15px;
     font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .menu-elem a {
     text-decoration: none;
+}
+
+.menu-elem:hover {
+    background-color: #e3e3e3;
 }

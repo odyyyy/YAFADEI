@@ -11,8 +11,15 @@ class PostsServiceTests(TestCase):
     pass
 
 
+class HomePageTests(TestCase):
+    def test_home_page_template_use(self):
+        response = self.client.get(reverse("homepage"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "pages/index.html")
+
+
 class PostsViewTests(TestCase):
-    """Модульное тестирование вью"""
+    """Модульное тестирование вьюшки отдающей все посты"""
 
     def setUp(self):
         self.factory = RequestFactory()
@@ -25,11 +32,6 @@ class PostsViewTests(TestCase):
             slug=slugify("Test Post"),
             user=self.user,
         )
-
-    def test_homepage(self):
-        response = self.client.get(reverse("homepage"))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "pages/index.html")
 
     def test_post_page(self):
         post = Posts.objects.create(

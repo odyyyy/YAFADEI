@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, Permission
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from posts.models import Posts
@@ -6,13 +6,6 @@ from posts.models import Posts
 
 class User(AbstractUser):
     """Расширенная модель пользователя"""
-
-    groups = models.ManyToManyField(
-        "auth.Group", related_name="custom_user_set"
-    )
-    user_permissions = models.ManyToManyField(
-        Permission, related_name="custom_user_permissions"
-    )
 
     class Meta:
         verbose_name = "Пользователи"
@@ -22,15 +15,21 @@ class User(AbstractUser):
 
 class Subscription(models.Model):
     subscriber = models.ForeignKey(
-        User, on_delete=models.CASCADE, verbose_name="Подписчик"
+        User,
+        on_delete=models.CASCADE,
+        related_name="subscriber",
+        verbose_name="Подписчик",
     )
     subscribed_to = models.ForeignKey(
-        User, on_delete=models.CASCADE, verbose_name="Подписан на"
+        User,
+        on_delete=models.CASCADE,
+        related_name="subscribed_to",
+        verbose_name="Подписан на",
     )
 
 
 class FavoritePost(models.Model):
     user = models.ForeignKey(
-        User, related_name="favorite_posts", on_delete=models.CASCADE
+        User, on_delete=models.CASCADE, related_name="favorite_posts"
     )
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)

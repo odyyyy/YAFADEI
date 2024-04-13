@@ -3,31 +3,44 @@
 
 {% block links %}
 {% load static %}
- <link rel="stylesheet" href="{% static 'posts-list-style.css' %}">
- <link rel="stylesheet" href="{% static 'menu-style.css' %}">
+<link rel="stylesheet" href="{% static 'posts-list-style.css' %}">
+<link rel="stylesheet" href="{% static 'menu-style.css' %}">
 {% endblock links %}
 
 {% block content %}
-    <div class="container">
-        <div class="searchbar-container">
-            <form action="" method="get">
-                <input name="s" placeholder="Искать здесь..." type="search" class="input">
-            </form>
-        </div>
+<div class="container">
+    <div class="searchbar-container">
+        <form action="" method="get">
+            <input name="s" placeholder="Искать здесь..." type="search" class="input">
+        </form>
+    </div>
     {% for post in posts_list %}
     <div class="post">
-        <div class="container-author">
-            <div class="avatar"></div>
-            <div class="name-data-container">
-                <p>Алексей</p>
-                <p class="time">{{ post.published_time }}</p>
+            <div class="container-post-info">
+                <div class="container-author">
+                    <div class="avatar"></div>
+                    <div class="name-data-container">
+                        <p>Алексей</p>
+                        <p class="time">{{ post.published_time }}</p>
+                    </div>
+                </div>
+                <h2><a href="{% url 'post_page' slug=post.slug %}" class="post-title">{{ post.title }}</a></h2>
             </div>
+            <div class="container-image">
+                <img src="/media/{{ post.img }}" alt="Post Image" class="post-img">
+            </div>
+        <div class="container-karma">
+            <form method="post">
+                 {% csrf_token %}
+                <button class="like rate" type="submit" value="like"></button>
+            </form>
+            <p class="karma">{{ post.karma }}</p>
+            <form method="post">
+                 {% csrf_token %}
+                <button class="dislike rate" type="submit" value="dislike"></button>
+            </form>
         </div>
-        <h2><a href="{% url 'post_page' slug=post.slug %}" class="post-title">{{ post.title }}</a></h2>
-        <img src="/media/{{ post.img }}" alt="Post Image" class="post-img">
-
-        <p class="karma">{{ post.karma }}</p>
     </div>
     {% endfor %}
-    </div>
+</div>
 {% endblock content %}

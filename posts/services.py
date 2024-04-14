@@ -1,6 +1,4 @@
 # For business logic :)
-import random
-
 from django.shortcuts import get_object_or_404
 from django.utils.text import slugify
 
@@ -18,15 +16,15 @@ def get_post_from_db(post_slug: str):
     return post
 
 
-def add_post_info_to_db(req):
+def add_post_info_to_db(request_data):
     """Общая функция добавляющая всю информацию о созданном посте в БД"""
 
-    post_title = req.POST.get("title")
-    post_image = req.FILES.get("img")
-    post_content = req.POST.get("content")
-    post_user = req.user
+    post_title = request_data["title"]
+    post_image = request_data["img"]
+    post_content = request_data["content"]
+    post_user = request_data["user"]
 
-    post_slug = generate_post_slug(post_title)
+    post_slug = generate_post_slug(post_title, post_user)
     print(post_image, post_image is not None)
     if post_image is not None:
         Posts.objects.create(
@@ -45,7 +43,7 @@ def add_post_info_to_db(req):
         )
 
 
-def generate_post_slug(title: str):
+def generate_post_slug(title: str, user_id: int):
     """Функция для генерация слага по заголовку поста"""
-    post_generated_id = "".join([str(random.randint(0, 9)) for _ in range(5)])
-    return slugify(title) + "-" + post_generated_id
+    # post_generated_id = "".join([str(random.randint(0, 9)) for _ in range(5)])
+    return slugify(title) + "-" + str(user_id)

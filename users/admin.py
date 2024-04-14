@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import FavoritePost, Subscription, User
 
 
-class UserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin):
     list_display = (
         "username",
         "email",
@@ -14,4 +14,14 @@ class UserAdmin(UserAdmin):
     )
 
 
-admin.site.register(User, UserAdmin)
+class SubscriptionAdmin(admin.ModelAdmin):
+    pass
+
+
+class FavoritePostAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(User, CustomUserAdmin)
+admin.site.register(Subscription, SubscriptionAdmin)
+admin.site.register(FavoritePost, FavoritePostAdmin)

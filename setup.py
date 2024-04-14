@@ -14,5 +14,4 @@ setup(
     url="https://github.com/odyyyy/YAFADEI",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=get_requirements(),
 )

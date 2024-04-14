@@ -34,6 +34,24 @@ DEBUG = os.getenv("DEBUG") == "True"
 ALLOWED_HOSTS = ["127.0.0.1"]
 SITE_ID = 1
 
+
+# Application definition
+
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sites",
+    "django.contrib.flatpages",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "posts",
+    "users",
+    "tinymce",
+]
+
+
 # Настройки WYSIWYG редактора
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -72,21 +90,6 @@ TINYMCE_DEFAULT_CONFIG = {
     "content_style": "body { font-family:Roboto,Helvetica,Arial,sans-serif; font-size:14px }",
 }
 
-# Application definition
-
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sites",
-    "django.contrib.flatpages",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "posts.apps.PostsConfig",
-    "users.apps.UsersConfig",
-    "tinymce",
-]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

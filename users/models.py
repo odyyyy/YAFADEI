@@ -20,6 +20,7 @@ class Subscription(models.Model):
         related_name="subscriber",
         verbose_name="Подписчик",
     )
+
     subscribed_to = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -27,9 +28,20 @@ class Subscription(models.Model):
         verbose_name="Подписан на",
     )
 
+    class Meta:
+        verbose_name = "Подписки"
+        verbose_name_plural = "Подписки"
+        ordering = ["id"]
+
 
 class FavoritePost(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="favorite_posts"
     )
+
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Избранные посты"
+        verbose_name_plural = "Избранные посты"
+        ordering = ["id"]

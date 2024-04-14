@@ -1,4 +1,4 @@
-from django.test import RequestFactory, TestCase
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -13,12 +13,19 @@ class PostsServiceTests(TestCase):
 
     def test_POST_new_post_in_db(self):
 
-        add_post_info_to_db(
-            title="Test Post",
-            content="Test Content",
-            slug=slugify("Test Post"),
-            user_id=1,
+        self.user = User.objects.create_user(
+            username="testuser", password="12345"
         )
+
+        add_post_info_to_db(
+            {
+                "title": "Test Post",
+                "content": "Test Content",
+                "user": self.user,
+                "img": None,
+            }
+        )
+
         self.assertEqual(Posts.objects.count(), 1)
 
 
@@ -63,7 +70,32 @@ class PostsViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "pages/posts/posts.html")
 
-    def test_add_new_post_view(self):
-        response = self.client.get(reverse("add_new_post"))
+
+class AddNewPostViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser", password="12345"
+        )
+
+    def test_add_new_post_view_get(self):
+        self.client.login(username="testuser", password="12345")
+        response = self.client.get(reverse("new_post"))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "pages/posts/add_post.html")
+
+    def test_add_new_post_view_post(self):
+        self.client.login(username="testuser", password="12345")
+        post_data = {
+            "title": "Test Post",
+            "content": "Test Content",
+            "img": "",
+        }
+        response = self.client.post(reverse("new_post"), data=post_data)
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Posts.objects.filter(title="Test Post").exists())
+
+    def test_add_new_post_view_post_unauthenticated(self):
+        response = self.client.post(reverse("new_post"))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "/login/?next=/new/")

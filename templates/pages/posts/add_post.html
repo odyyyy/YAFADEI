@@ -1,24 +1,23 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Title</title>
+<title>Title</title>
 {% endblock title %}
 
 {% block links %}
 {% load static %}
-    {{ form.media }}
-    <link rel="stylesheet" href="{% static 'menu-style.css' %}">
-    <link rel="stylesheet" href="{% static 'add-post.css' %}">
+{{ form.media }}
+<link rel="stylesheet" href="{% static 'menu-style.css' %}">
+<link rel="stylesheet" href="{% static 'add-post.css' %}">
 {% endblock links %}
 
 {% block content %}
-<div class=""
-<form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
 
-    {% csrf_token %}
-    {{ form.media }}
-    {{ form.as_p }}
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
 
-    <button type="submit">Опубликовать</button>
-</form>
+        <button type="submit">Опубликовать</button>
+    </form>
 {% endblock content %}

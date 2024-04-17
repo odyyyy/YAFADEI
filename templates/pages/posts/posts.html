@@ -27,7 +27,8 @@
                 <h2><a href="{% url 'post_page' slug=post.slug %}" class="post-title">{{ post.title }}</a></h2>
             </div>
             <div class="container-image">
-                <img src="/media/{{ post.img }}" alt="Post Image" class="post-img">
+                <a href="{% url 'post_page' slug=post.slug %}" class="post-title">
+                <img src="/media/{{ post.img }}" alt="Post Image" class="post-img"></a>
             </div>
         <div class="container-karma">
             <form method="post">

@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти в аккаунт</button>
-</form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'login-page.css' %}">
+{% endblock links %}
+
+{% block title %}
+<meta charset="UTF-8">
+<title>Title</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container-line">
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Войти в аккаунт</button>
+    </form>
+</div>
+{% endblock content %}

@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
+{% block title %}
     <title>Title</title>
+{% endblock title %}
+
+{% block links %}
+{% load static %}
     {{ form.media }}
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'menu-style.css' %}">
+    <link rel="stylesheet" href="{% static 'add-post.css' %}">
+{% endblock links %}
 
-
+{% block content %}
+<div class=""
 <form method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
@@ -17,5 +21,4 @@
 
     <button type="submit">Опубликовать</button>
 </form>
-</body>
-</html>
+{% endblock content %}

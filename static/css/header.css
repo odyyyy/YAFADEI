@@ -3,8 +3,9 @@
 .header {
     display: flex;
     height: 60px;
-    background: linear-gradient(45deg, rgba(188, 16, 16, 1), rgba(194, 87, 0, 0.8),
-                                rgba(194, 87, 0, 1), rgba(188, 16, 16, 0.8));
+    /*background: linear-gradient(45deg, rgba(188, 16, 16, 1), rgba(194, 87, 0, 0.8),
+                               rgba(194, 87, 0, 1), rgba(188, 16, 16, 0.8));*/
+    background-color: #1C003D;
     justify-content: space-between;
     align-items: center;
 }
@@ -12,6 +13,7 @@
 .title {
     display : inline-block;
     font-family : 'Yeseva One';
+    color: white;
     font-size : 30px;
     margin-left: 10px;
     user-select: none;
@@ -23,7 +25,7 @@
 }
 
 .login-links a {
-    color : black;
+    color: white;
     text-decoration : none;
     padding: 10px;
     font-family: "Roboto", sans-serif;

@@ -9,13 +9,15 @@
 <title>Title</title>
 {% endblock title %}
 
-{% block content %}
-<div class="container-line">
-    <form method="post">
+{% block menu %}
+{% endblock menu %}
 
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Войти в аккаунт</button>
-    </form>
-</div>
+{% block content %}
+<form method="post" class="container-line">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn-log">Войти в аккаунт</button>
+</form>
 {% endblock content %}

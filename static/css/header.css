@@ -28,6 +28,6 @@
     cursor: pointer;
 }
 .login-links a:hover {
-    color : #f32f24;
-    background-color: red;
+    background-color: #0017b0;
+    border-radius: 10px;
 }

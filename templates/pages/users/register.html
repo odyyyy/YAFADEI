@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'login-page.css' %}">
+{% endblock links %}
+
+{% block title %}
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
-<form method="post">
+{% endblock title %}
+
+{% block menu %}
+{% endblock menu %}
+
+{% block content %}
+<form method="post" class="container-line">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
+    <button type="submit" class="btn-log">Зарегистрироваться</button>
 </form>
-</body>
-</html>
+{% endblock content %}

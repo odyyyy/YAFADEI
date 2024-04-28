@@ -9,7 +9,15 @@
 </head>
 <body>
 <h1>Hello World!</h1>
-<form method="post" action="{% url 'logout' %}">
+
+{% if request.user.is_authenticated %}
+    <p>You are logged in as {{ request.user.username }}</p>
+<form action="post" action="{% url 'users:password_change' %}">
+    {% csrf_token %}
+    <button type="submit">Сменить пароль</button>
+</form>
+{% endif %}
+<form method="post" action="{% url 'users:logout' %}">
     {% csrf_token %}
     <button type="submit">Log Out</button>
 </form>

@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView
 
@@ -58,6 +59,46 @@ class PostPageView(DetailView):
     model = Posts
     template_name = "pages/posts/post_page.html"
     context_object_name = "post"
+
+
+@login_required(login_url=LOGIN_URL)
+def post_like_view(request, slug):
+    """Вью для лайка поста"""
+    post = Posts.objects.get(slug=slug)
+    user = request.user
+
+    if post.like.filter(id=user.id).exists():
+        post.like.remove(user)
+        if post.dislike.filter(id=user.id).exists():
+            post.dislike.add(user)
+    else:
+        if post.dislike.filter(id=user.id).exists():
+            post.dislike.remove(user)
+        post.like.add(user)
+
+    return redirect("posts_page")
+
+
+@login_required(login_url=LOGIN_URL)
+def post_dislike_view(request, slug):
+    """Вью для дизлайка поста"""
+    post = Posts.objects.get(slug=slug)
+    user = request.user
+
+    if post.dislike.filter(id=user.id).exists():
+        post.dislike.remove(user)
+    else:
+        if post.like.filter(id=user.id).exists():
+            post.like.remove(user)
+        post.dislike.add(user)
+
+    return redirect("posts_page")
+
+
+def get_likes_count_view(request, slug):
+    post = Posts.objects.get(slug=slug)
+    likes_count = post.like.count()
+    return JsonResponse({"likes_count": likes_count})
 
 
 def handle404Error(request, exception):

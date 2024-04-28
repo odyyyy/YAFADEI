@@ -19,6 +19,18 @@
     <br>
     <br>
 
+    <form action="{% url 'post_like' slug=post.slug %}" method="POST">
+        {% csrf_token %}
+        <span> {{ post.like.count}} </span>
+        <button type="submit">like</button>
+    </form>
+
+        <form action="{% url 'post_dislike' slug=post.slug %}" method="POST">
+        {% csrf_token %}
+        <span> {{ post.dislike.count }} </span>
+        <button type="submit">dislike</button>
+    </form>
+
     {% endfor %}
 </body>
 </html>

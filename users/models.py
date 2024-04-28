@@ -4,6 +4,7 @@ from django.db import models
 from posts.models import Posts
 
 
+# class User(AbstractUser, PermissionsMixin):
 class User(AbstractUser):
     """Расширенная модель пользователя"""
 
@@ -13,6 +14,7 @@ class User(AbstractUser):
         ordering = ["id"]
 
 
+# Про лайки https://github.com/MahfuzKhandaker/ajxify_django
 class Subscription(models.Model):
     subscriber = models.ForeignKey(
         User,

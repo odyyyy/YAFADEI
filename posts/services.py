@@ -7,7 +7,7 @@ from posts.models import Posts
 
 def get_posts_list_from_db():
     """Функция для получения всех постов, отсортированных по времени"""
-    return list(Posts.objects.values().order_by("-published_time"))
+    return Posts.objects.all().order_by("-published_time")
 
 
 def get_post_from_db(post_slug: str):

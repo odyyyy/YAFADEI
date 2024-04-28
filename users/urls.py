@@ -1,5 +1,6 @@
 from django.contrib.auth.views import (
     LogoutView,
+    PasswordChangeDoneView,
     PasswordChangeView,
     PasswordResetCompleteView,
     PasswordResetConfirmView,
@@ -16,9 +17,23 @@ urlpatterns = [
     path("signup/", RegisterUser.as_view(), name="register"),
     path("login/", LoginUser.as_view(), name="login"),
     path("logout/", LogoutView.as_view(), name="logout"),
+    # ИЗМЕНЕНИЕ ПАРОЛЯ
     path(
-        "password-change/", PasswordChangeView.as_view(), name="password_change"
+        "password-change/",
+        PasswordChangeView.as_view(
+            template_name="pages/users/password_change_form.html",
+            success_url=reverse_lazy("users:password_change_done"),
+        ),
+        name="password_change",
     ),
+    path(
+        "password-change/done/",
+        PasswordChangeDoneView.as_view(
+            template_name="pages/users/password_change_done.html"
+        ),
+        name="password_change_done",
+    ),
+    # СБРОС ПАРОЛЯ
     path(
         "password-reset/",
         PasswordResetView.as_view(

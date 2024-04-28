@@ -12,7 +12,7 @@
 
 {% if request.user.is_authenticated %}
     <p>You are logged in as {{ request.user.username }}</p>
-<form action="post" action="{% url 'users:password_change' %}">
+<form method="get" action="{% url 'users:password_change' %}">
     {% csrf_token %}
     <button type="submit">Сменить пароль</button>
 </form>

@@ -7,30 +7,103 @@
     <title>Title</title>
 </head>
 <body>
-    {% for post in posts_list %}
-    <a href="{% url 'post_page' slug=post.slug %}">{{ post.title }}</a>
-     <br>
-        <img src="/media/{{ post.img }}" alt="Post Image" width="500px" height="500px">
-    <br>
-        {{ post.published_time }}
-    <br>
-        {{ post.karma }}
-    <br>
-    <br>
-    <br>
+{% for post in posts_list %}
+<a href="{% url 'post_page' slug=post.slug %}">{{ post.title }}</a>
+<br>
+<img src="/media/{{ post.img }}" alt="Post Image" width="500px" height="500px">
+<br>
+{{ post.published_time }}
+<br>
+{{ post.karma }}
+<br>
+<br>
+<br>
 
-    <form action="{% url 'post_like' slug=post.slug %}" method="POST">
-        {% csrf_token %}
-        <span> {{ post.like.count}} </span>
-        <button type="submit">like</button>
-    </form>
+<span class="like-count-{{ forloop.counter }}">{{ post.like.count }}</span>
+<button class="like-btn" data-slug="{{ post.slug }}" data-post-id="{{ forloop.counter }}">like</button>
+<br>
+<span class="dislike-count-{{ forloop.counter }}">{{ post.dislike.count }}</span>
+<button class="dislike-btn" data-slug="{{ post.slug }}" data-post-id="{{ forloop.counter }}">dislike</button>
 
-        <form action="{% url 'post_dislike' slug=post.slug %}" method="POST">
-        {% csrf_token %}
-        <span> {{ post.dislike.count }} </span>
-        <button type="submit">dislike</button>
-    </form>
+<br>
+<br>
+<br>
 
-    {% endfor %}
+{% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.like-btn').click(function () {
+            let slug = $(this).data('slug');
+            let url = '{% url "post_like" slug="slug_to_replace" %}'.replace('slug_to_replace', slug);
+            let post_id = $(this).data('post-id')
+
+            let likeCountElement = $(this).prev('.like-count-' + post_id);
+            let dislikeCountElement = $(this).siblings('.dislike-count-' + post_id);
+
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                success: function (response) {
+                    // установка обновленных лайков
+                    let $tempElement = $('<div>').html(response);
+                    let likeCount = $tempElement.find('.like-count-' + post_id).text();
+                    likeCountElement.text(likeCount);
+
+                    // установка обновленных дизлайков
+                    let dislikeCount = $tempElement.find('.dislike-count-' + post_id).text();
+                    dislikeCountElement.text(dislikeCount);
+
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+
+        });
+
+        $('.dislike-btn').click(function () {
+            let slug = $(this).data('slug');
+            let url = '{% url "post_dislike" slug="slug_to_replace" %}'.replace('slug_to_replace', slug);
+
+            let post_id = $(this).data('post-id')
+            let dislikeCountElement = $(this).prev('.dislike-count-' + post_id);
+            let likeCountElement = $(this).siblings('.like-count-' + post_id);
+
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                success: function (response) {
+                    // установка обновленных дизлайков
+                    let $tempElement = $('<div>').html(response);
+                    let dislikeCount = $tempElement.find('.dislike-count-' + post_id).text();
+                    dislikeCountElement.text(dislikeCount);
+
+                    // установка обновленных лайков
+                    console.log(likeCountElement);
+                    let likeCount = $tempElement.find('.like-count-' + post_id).text();
+                    likeCountElement.text(likeCount);
+
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
 </body>
 </html>

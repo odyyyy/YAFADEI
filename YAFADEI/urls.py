@@ -5,8 +5,8 @@ from django.urls import include, path
 
 from posts.views import (
     AllPostsPageView,
+    MyPostsPageView,
     add_new_post_view,
-    get_likes_count_view,
     handle404Error,
     handle500Error,
     homepage_view,
@@ -19,11 +19,7 @@ urlpatterns = [
     path("new/", add_new_post_view, name="new_post"),
     path("posts/", AllPostsPageView.as_view(), name="posts_page"),
     path("post/", include("posts.urls")),
-    path(
-        "post/<slug:slug>/likes/count/",
-        get_likes_count_view,
-        name="get_likes_count",
-    ),
+    path("my_posts/", MyPostsPageView.as_view(), name="my_posts"),
     path("", include("users.urls")),
 ]
 

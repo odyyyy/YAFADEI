@@ -34,7 +34,7 @@
     align-items: center;
     width: 530px;
     height: 550px;
-    background-color: white;
+    background-color: rgba(75, 61, 99, 0.99);
     margin-bottom: 20px;
     border-radius: 20px;
 }

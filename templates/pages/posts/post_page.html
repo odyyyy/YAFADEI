@@ -1,22 +1,28 @@
-<!-- Страница поста -->
+{% extends 'base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
- {{ post.title }}
- <br>
-  <br>
- <img src="/media/{{ post.img }}" alt="" width="500px" height="500px">
-  <br>
-  <br>
- {{ post.content | safe }}
-  <br>
-  <br>
- {{ post.karma }}
+{% block links %}
+<link rel="stylesheet" href="{% static 'post-page-style.css' %}">
+<link rel="stylesheet" href="{% static 'posts-list-style.css' %}">
+<link rel="stylesheet" href="{% static 'menu-style.css' %}">
+{% endblock links %}
 
-</body>
-</html>
+{% block title %}
+<meta charset="UTF-8">
+<title>Title</title>
+{% endblock title %}
+
+{% block content %}
+{{ post.title }}
+<div class="container">
+    <br>
+    <br>
+    <img src="/media/{{ post.img }}" alt="" width="500px" height="500px">
+    <br>
+    <br>
+    {{ post.content | safe }}
+    <br>
+    <br>
+</div>
+{{ post.karma }}
+{% endblock content %}

@@ -13,16 +13,20 @@
 {% endblock title %}
 
 {% block content %}
-{{ post.title }}
+
 <div class="container">
     <br>
     <br>
-    <img src="/media/{{ post.img }}" alt="" width="500px" height="500px">
+    <img src="/media/{{ post.img }}" alt="" width="500px" height="500px" class="img">
     <br>
+    <div class="info-container">
+    <h2>{{ post.title }}</h2>
     <br>
-    {{ post.content | safe }}
+    <h3>{{ post.content | safe }}</h3>
     <br>
+    {{ post.karma }}
+    </div>
     <br>
 </div>
-{{ post.karma }}
+
 {% endblock content %}

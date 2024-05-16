@@ -5,3 +5,11 @@
 .center-container{
     align-items: center;
 }
+.img{
+    border-radius: 20px;
+}
+.info-container{
+    width: 500px;
+    position: relative;
+    left: 0;
+}

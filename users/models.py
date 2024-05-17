@@ -4,7 +4,6 @@ from django.db import models
 from posts.models import Posts
 
 
-# class User(AbstractUser, PermissionsMixin):
 class User(AbstractUser):
     """Расширенная модель пользователя"""
 
@@ -14,7 +13,6 @@ class User(AbstractUser):
         ordering = ["id"]
 
 
-# Про лайки https://github.com/MahfuzKhandaker/ajxify_django
 class Subscription(models.Model):
     subscriber = models.ForeignKey(
         User,
@@ -37,10 +35,10 @@ class Subscription(models.Model):
 
 
 class FavoritePost(models.Model):
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="favorite_posts"
     )
-
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
 
     class Meta:

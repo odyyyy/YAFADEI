@@ -18,4 +18,5 @@ urlpatterns = [
         posts_view.DeletePostIView.as_view(),
         name="delete_post",
     ),
+    path("favorite/<slug:slug>/", posts_view.favorite_view, name="favorite"),
 ]

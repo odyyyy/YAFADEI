@@ -143,3 +143,7 @@ def handle404Error(request, exception):
 def handle500Error(request):
     """Вью для обработки ошибки 500"""
     return render(request, "pages/errors/500.html")
+
+
+def favorite_view():
+    return None
